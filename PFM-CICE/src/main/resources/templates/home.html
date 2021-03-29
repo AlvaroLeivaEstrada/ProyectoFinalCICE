@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<style>
+body {
+	background-image: url('/images/fondo.jpg');
+	background-reapeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+</style>
+
+<title>Almacenes</title>
+<!-- Bootstrap core CSS -->
+
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			
+
+		</div>
+		<div class="row">
+			<h1>Hola Mundo!</h1>
+			<a th:href="@{/list}"> Lista almacenes</a><br> 
+			<a th:href="@{/roturaStock}">Almacenes con rotura de stock</a>
+		</div>
+	</div>
+
+</body>
+</html>

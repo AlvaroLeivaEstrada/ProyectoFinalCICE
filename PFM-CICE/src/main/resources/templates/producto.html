@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Productos</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="row">
+		<ul class="nav nav-tabs w-30">
+			<li class="nav-item"><a class="btn btn-secondary btn-lg mr-3"
+				aria-current="page" th:href="@{/}"><strong>HOME</strong></a></li>
+			<li class="nav-item">
+				<h1>
+					<strong>LISTADO DE PRODUCTOS</strong>
+				</h1>
+			</li>
+
+
+		</ul>
+	</div>
+	<div class="row">
+
+		<div class="table-responsive ">
+
+			<table class="table">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Precio Unitario</th>
+						<th scope="col">Numero de almacen</th>
+						<th scope="col">Comprar Producto</th>
+					</tr>
+				</thead>
+				<tbody th:each="producto:${productos}"
+					class="table-bordered border-dark">
+					<tr class="table-secondary">
+						<th scope="row" th:text=*{producto.id} />
+						<td th:text=*{producto.nombre} />
+						<td th:text=*{producto.precioUnitario} />
+						<td th:text="${#httpServletRequest.getParameter('id')}" />
+						<td><a class="btn btn-success btn-xs mx-1"
+							th:href="@{/venta(id=${producto.id},almacen=${#httpServletRequest.getParameter('id')})}">Comprar</a></td>
+
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Bootstrap JS -->
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+</body>
+</html>

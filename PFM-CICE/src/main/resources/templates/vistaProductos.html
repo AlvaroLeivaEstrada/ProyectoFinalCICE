@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Productos en rotura</title>
+<!-- Bootstrap core CSS -->
+
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<h1 align="center">
+		<strong>Productos en rotura </strong>
+	</h1>
+	<div class="row">
+		<ul class="nav nav-tabs w-30">
+			<li class="nav-item"><a class="btn btn-secondary btn-lg mr-3"
+				aria-current="page" th:href="@{/}"><strong>HOME</strong></a></li>
+		</ul>
+	</div>
+
+
+
+	<table class="table">
+		<thead class="table-dark">
+			<tr>
+				<th>Producto</th>
+				<th>Cantidad</th>
+			</tr>
+		</thead>
+		<tbody class="table-bordered border-dark">
+			<tr th:each="item: ${productos}" class="table-secondary">
+				<th th:text="${item.IdProducto.nombre}"></th>
+				<th th:text="${item.stock}"></th>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+
+</body>
+</html>

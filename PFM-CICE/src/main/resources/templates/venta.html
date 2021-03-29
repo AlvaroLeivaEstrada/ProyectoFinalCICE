@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Ventas</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+
+<body>
+	<div class="table-responsive">
+		<h1 align="center">
+			<strong>VENTAS REALIZADAS</strong>
+		</h1>
+		
+		<nav class="navbar navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="btn btn-success btn-lg mr-5 w-30"
+					aria-current="page" th:href="@{/}"><strong>HOME</strong></a>
+				<form th:action="@{/busquedad}" class="d-flex" th:object="${venta}" method="post" >
+					<input class="form-control me-2" type="text" th:field="*{anoVenta}" placeholder="Año de venta"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscador</button>
+				</form>
+			</div>
+		</nav>
+
+		<br />
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre de almacen</th>
+					<th scope="col">Nombre de producto</th>
+					<th scope="col">Año de venta</th>
+	
+				</tr>
+			</thead>
+			<tbody th:each="venta:${ventas}"
+				class="table-bordered border-dark">
+				<tr class="table-secondary">
+					<th scope="row" th:text=*{venta.idVenta} />
+					<td th:text=*{venta.almacen.nombre} />
+					<td th:text=*{venta.producto.nombre} />
+					<td th:text=*{venta.anoVenta}></td>
+				</tr>
+			</tbody>
+
+
+
+		</table>
+
+
+
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Bootstrap JS -->
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+</body>
+</html>

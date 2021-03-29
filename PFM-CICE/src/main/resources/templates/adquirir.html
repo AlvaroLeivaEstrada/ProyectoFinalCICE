@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Adquirir</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+
+<body>
+	<h1 align="center">
+		<strong>LISTADO DE PRODUCTOS DISPONIBLES</strong>
+	</h1>
+	<div class="row">
+		<ul class="nav nav-tabs w-30">
+			<li class="nav-item"><a class="btn btn-secondary btn-lg ml-3"
+				aria-current="page" th:href="@{/}"><strong>HOME</strong></a></li>
+
+		</ul>
+
+	</div>
+
+	<div class="table-responsive">
+
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Adquirir</th>
+				</tr>
+			</thead>
+			<tbody th:each="producto:${productos}"
+				class="table-bordered border-dark">
+				<tr class="table-secondary">
+					<th scope="row" th:text=*{producto.id} />
+					<td th:text=*{producto.nombre} />
+
+					<td>
+						<div>
+							<form th:action="@{/agregarProducto}"
+								th:object=${productoAlmacenDTO} method="post">
+								<input th:value="${param.almacen_id}" class="form-control me-2"
+									id="almacen" name="almacen" type="hidden"></input> <input
+									th:value="${producto.id}" class="form-control me-2"
+									id="producto" name="producto" type="hidden"></input> <input
+									placeholder="Cantidad" class="form-control me-2" type="number"
+									id="stock" name="stock"></input>
+								<button type="submit" class="btn btn-success">Agregar</button>
+							</form>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Bootstrap JS -->
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+
+
+</body>
+</html>
